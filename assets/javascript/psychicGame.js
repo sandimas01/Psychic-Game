@@ -10,7 +10,8 @@ var lettersGuessed = [];
 var computerGuess = [];
 
 var userGuess = " "
-var ascii9 = "ASCII9 ART";
+var ascii9 = "&nbspO/<br>/&nbsp|<br>&nbspM";
+//   var ascii8 = "ASCII8 ART";
 
 //need computer to guess start initial letter
     window.onload = function() {
@@ -64,10 +65,6 @@ var ascii9 = "ASCII9 ART";
 	        console.log(computerGuess[0]);
         }
 
-        if (guessesLeft === 9){
-            var ascii9 = "ASCII9 ART";
-        }
-
         // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
         var html =
        // "<p>The computer chose: " + computerGuess + "</p>" +
@@ -80,24 +77,4 @@ var ascii9 = "ASCII9 ART";
         // Set the inner HTML contents of the #game div to our html string
         document.querySelector("#game").innerHTML = html;
 
-        
-
-
-        // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
-        var html2 =
-        "<p>" + ascii9 + "</p>" ;
-        // "<p>" + ascii8 + "</p>" +
-        // "<p>" + ascii7 + "</p>" +
-        // "<p>" + ascii6 + "</p>" +
-        // "<p>" + ascii5 + "</p>" +
-        // "<p>" + ascii4 + "</p>" +
-        // "<p>" + ascii3 + "</p>" +
-        // "<p>" + ascii2 + "</p>" +
-        // "<p>" + ascii1 + "</p>" +
-        // "<p>" + ascii0 + "</p>";
-
-        // Set the inner HTML contents of the #game div to our html string
-        document.querySelector("#game2").innerHTML = html2;
-
-      }
-    
+      }   
