@@ -17,7 +17,7 @@ var ascii9 = "&nbspO/<br>/&nbsp|<br>&nbspM";
     window.onload = function() {
       var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
       computerGuess.push(compGuess);
-        console.log(computerGuess[0]);
+        console.log(computerGuess[0] + "  -comp guess");
 
         var html =
          "<p>You chose: " + userGuess + "</p>" +
@@ -36,7 +36,7 @@ var ascii9 = "&nbspO/<br>/&nbsp|<br>&nbspM";
     document.onkeyup = function(event) {
       var userGuess = event.key;
       lettersGuessed.push(userGuess);
-        console.log(userGuess)
+        console.log(userGuess + "  -user guess")
 
 
       // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
@@ -47,12 +47,12 @@ var ascii9 = "&nbspO/<br>/&nbsp|<br>&nbspM";
           computerGuess.length = 0;
           var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
           computerGuess.push(compGuess);
-          console.log(computerGuess[0]);
+          console.log(computerGuess[0] + "  -comp guess");
         }
 
         else if((userGuess !== computerGuess[0]) && (guessesLeft >0)) {
             guessesLeft=guessesLeft-1;
-            console.log(guessesLeft);            
+            console.log(guessesLeft + "  -guesses left");            
         }
 
         else {
@@ -62,7 +62,7 @@ var ascii9 = "&nbspO/<br>/&nbsp|<br>&nbspM";
             computerGuess.length = 0;
 	        var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 	        computerGuess.push(compGuess);
-	        console.log(computerGuess[0]);
+	        console.log(computerGuess[0] + "  -comp guess");
         }
 
         // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
