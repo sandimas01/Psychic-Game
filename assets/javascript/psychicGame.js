@@ -2,6 +2,8 @@
 // and get 'losses counter' working correctly 
 //press letters 9 times
 
+// push in the array user guesses
+
 
 
     // Creates an array that lists out all of the options (various letters).
@@ -11,8 +13,8 @@
     var wins = 0;
     var losses = 0;
     var guessesLeft = 9;
-
-
+    var lettersGuessed = [];
+    var computerGuess = [];
 
 
 
@@ -29,29 +31,35 @@
 
 
     // This function is run whenever the user presses a key.
+    // Determines which key was pressed.
+    //var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); ***save for later***
+
     document.onkeyup = function(event) {
-        
-  
-      // Determines which key was pressed.
       var userGuess = event.key;
-      //var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); ***save for later***
+      lettersGuessed.push(userGuess);
         console.log(userGuess)
+
+
       // Randomly chooses a choice from the options array. This is the Computer's guess.
-      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-        console.log(computerGuess);
+      var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+      computerGuess.push(compGuess);
+        console.log(computerGuess[0]);
 
       // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
-        if (userGuess === computerGuess) {
+        if ((userGuess === computerGuess[0]) && (guessesLeft >0)){
           wins++;
+
         }
-        else if(userGuess !== computerGuess) {
-            losses++;
+        else if((userGuess !== computerGuess[0]) && (guessesLeft >0)) {
             guessesLeft=guessesLeft-1;
             console.log(guessesLeft);
             
+            
+        }
+        else {
+            losses++;
 
-        };
-
+        }
         //----------------------------------------------------------------------------
 // Set up an array of numbers.
       //var nums = [1, 8, 2, 3, 1, 1, 6, 6, 6];
@@ -97,8 +105,9 @@
           "<p>You chose: " + userGuess + "</p>" +
           "<p>The computer chose: " + computerGuess + "</p>" +
           "<p>wins: " + wins + "</p>" +
-          "<p>losses: " + losses + "</p>";
           "<p>Guesses Left: " + guessesLeft + "</p>";
+          "<p>losses: " + losses + "</p>";
+          "<p>Your guesses so far: " + lettersGuessed + "</p>";
 
          // "<p>losses: " + nums + "</p>";
         //   "<p>losses: " + favTVshows + "</p>";
